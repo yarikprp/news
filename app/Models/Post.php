@@ -5,6 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @method static findOrFail($id)
+ */
 class Post extends Model
 {
     /** @use HasFactory<\Database\Factories\PostFactory> */
@@ -19,6 +22,6 @@ class Post extends Model
 
     public function comments()
     {
-        $this->hasMany(Comment::class)->orderBy('created_at');
+        return $this->hasMany(Comment::class)->orderBy('created_at');
     }
 }
